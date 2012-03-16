@@ -1,9 +1,9 @@
 #!/bin/bash
 
-DOT_FILES=( .vimrc .bashrc)
+DOT_FILES=( .vimrc .bashrc .gitconfig)
 
 for file in ${DOT_FILES[@]}
 do
-    ln -s $HOME/dotFiles/$file $HOME/$file
-    . $file
+    ln -fs $HOME/dotFiles/$file $HOME/$file
+    #. $file
 done

@@ -1,0 +1,13 @@
+[user]
+  name = yuki tamazawa
+  email = yuki@tamazawa.net
+[color]
+  ui = true
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+[core]
+  excludesfile = ~/.gitignore
+  editor = vi
