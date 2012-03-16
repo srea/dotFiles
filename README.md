@@ -2,4 +2,3 @@
 vimrc
 bashrc
 など置いておきます
-
