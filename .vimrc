@@ -5,7 +5,13 @@ set nu
 set ruler
 set nowrap
 set showtabline=2
-:colorscheme desert
+colorscheme desert
 set expandtab
 set ts=4
 set noswapfile
+
+set nocompatible
+filetype off
+set rtp+=~/dotFiles/vimfiles/bundle/vundle/
+call vundle#rc()
+filetype plugin indent on " required!
