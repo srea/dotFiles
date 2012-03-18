@@ -11,3 +11,8 @@
 [core]
   excludesfile = ~/.gitignore
   editor = vi
+[http]
+  sslVerify = false
+[github]
+	user = srea
+	token = fc722708c58fd87f66b83ecbabf6e92d
