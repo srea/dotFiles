@@ -1,29 +1,29 @@
-# $BJ8;z%3!<%I(B
+# 文字コード
 defutf8 on
 defencoding utf8
 encoding utf8 utf8
-# $BF0:n@_Dj(B
+# 動作設定
 startup_message off
 autodetach on
 vbell off
 escape ^t^t
-# $B%9%F!<%?%9%P!<(B
+# ステータスバー
 hardstatus on
 #hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
 caption always "%{= Rk} %?%F%{b kr}%? %?%h%:%t (screen #%n)%? %{-}"
 hardstatus alwayslastline "%{= Gk} %-Lw%40L>%{b kg} %n %t %{-}%+Lw%-040=%{b km} %l %{.b} %Y/%m/%d %C:%s %A "
 
-# $B8=:_$NGX7J?'$G>C5n$9$k(B
+# 現在の背景色で消去する
 defbce "on"
-# $BB@;z$K$OL@$k$$?'$r;H$&(B(^[$B$O(Bvim$B$G(BC-v ESC$B$GF~NO$9$k(B)
+# 太字には明るい色を使う(^[はvimでC-v ESCで入力する)
 attrcolor b "^["
-# 256$B?'I=<(@_Dj(B
+# 256色表示設定
 term xterm-256color
-# $B%9%/%m!<%k%P%C%U%!$O:GBg(B10000$B9T$K$9$k(B
+# スクロールバッファは最大10000行にする
 defscrollback 10000
-# $BJL2hLL%5%]!<%H!#(BVim$B$d(Bless$B;H$&$H$-$KJXMx(B
+# 別画面サポート。Vimやless使うときに便利
 altscreen on
 
-# $BC<Kv$,Mn$A$?$i<+F0E*$K%G%?%C%A$9$k(B
+# 端末が落ちたら自動的にデタッチする
 autodetach on
 
