@@ -23,6 +23,7 @@ alias l='ls -lat '
 alias ll='ls -lat '
 alias t='tailf '
 alias sl='ls'
+alias sc='screen'
 
 complete -d cd
 

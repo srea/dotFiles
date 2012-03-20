@@ -1,1 +1,29 @@
+# 文字コード
+defutf8 on
+defencoding utf8
+encoding utf8 utf8
+# 動作設定
+startup_message off
+autodetach on
+vbell off
+escape ^t^t
+# ステータスバー
+hardstatus on
+#hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+caption always "%{= Rk} %?%F%{b kr}%? %?%h%:%t (screen #%n)%? %{-}"
+hardstatus alwayslastline "%{= Gk} %-Lw%40L>%{b kg} %n %t %{-}%+Lw%-040=%{b km} %l %{.b} %Y/%m/%d %C:%s %A "
+
+# 現在の背景色で消去する
+defbce "on"
+# 太字には明るい色を使う(^[はvimでC-v ESCで入力する)
+attrcolor b "^["
+# 256色表示設定
+term xterm-256color
+# スクロールバッファは最大10000行にする
+defscrollback 10000
+# 別画面サポート。Vimやless使うときに便利
+altscreen on
+
+# 端末が落ちたら自動的にデタッチする
+autodetach on
 
