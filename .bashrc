@@ -20,6 +20,7 @@ alias vi='vim'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias l='ls -lat '
+alias ll='ls -lat '
 alias t='tailf '
 alias sl='ls'
 
