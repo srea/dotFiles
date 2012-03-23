@@ -1,0 +1,19 @@
+""""""""""""""
+" プラグイン " 
+""""""""""""""
+" install:BundleInstall
+" update :BundleInstall!
+set nocompatible " 互換モードOFF
+filetype off
+set rtp+=~/dotFiles/vimfiles/bundle/vundle/
+call vundle#rc()
+" git
+Bundle 'thinca/vim-quickrun'
+Bundle 'Gist.vim'
+let g:gist_detect_filetype = 1
+
+Bundle 'mattn/vimplenote-vim'
+Bundle 'mattn/webapi-vim'
+"source ~/.simplenoterc
+
+filetype plugin indent on " required!
