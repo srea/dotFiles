@@ -13,6 +13,10 @@ set incsearch
 set wrapscan " 繰り返して検索する nowrapscan
 " キー動作設定
 set backspace=indent,eol,start " BackSpaceで色々消せるように
+noremap                   " ^Hは[Ctrl + v][DEL]、^Hは[Ctrl + v][Ctrl + H]で入力する。
+noremap!  
+noremap <BS> 
+noremap! <BS> 
 set vb t_vb=                   " ビープ音を消す
 " 表示設定
 set number " nu
@@ -47,18 +51,19 @@ set noswapfile " スワップを作らない
 set nobackup   " バックアップを取らない
 set autoread   " 変更されたら自動読み直し
 " マウスを使用できるように
-set mouse=a
-set guioptions+=a
-set ttymouse=xterm2
+"set mouse=a
+"set guioptions+=a
+"set ttymouse=xterm2
 
 """"""""""""""""""
 " キーマッピング "
 """"""""""""""""""
 " インサートモードでもhjkl移動
-imap <C-h> <Left>
-imap <C-j> <Down>
-imap <C-k> <Up>
-imap <C-l> <Right>
+" http://d.hatena.ne.jp/geiinbashoku2/20090701/p1
+"imap <C-h> <Left>
+"imap <C-j> <Down>
+"imap <C-k> <Up>
+"imap <C-l> <Right>
 " BackSpaceもDelete
 imap <C-u> <BS>
 imap <C-i> <Del>
