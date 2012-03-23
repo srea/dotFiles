@@ -9,3 +9,6 @@ do
 done
 
 ln -fs $HOME/dotFiles/vimfiles ~/.vim
+
+mkdir ~/bin
+cp -ap ./bin/* ~/bin/
