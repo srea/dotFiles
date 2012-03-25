@@ -7,7 +7,9 @@ fi
 
 # User specific aliases and functions
 
-PATH=$PATH:/usr/local/php5/bin:/usr/local/apache/bin
+export EDITOR=vim
+
+PATH=$PATH
 
 HISTSIZE=10000  
 HISTFILESIZE=10000  

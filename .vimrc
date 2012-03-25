@@ -2,3 +2,5 @@
 source ~/dotFiles/.vimrc.bundle
 " 基本設定 
 source ~/dotFiles/.vimrc.basic
+" テンプレート設定
+source ~/dotFiles/.vimrc.templates
