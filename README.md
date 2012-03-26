@@ -1,28 +1,13 @@
 # 設定ファイル置き場
-vimrc
-bashrc
-など置いておきます
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    vimrc
+    bashrc
 
 ## vim vundle
 
-git submodule add http://github.com/gmarik/vundle.git vimfiles/bundle/vundle
-git commit -m 'add_vundle'
-git push origin master
-設定は.vimrcを見る。
+    git submodule add http://github.com/gmarik/vundle.git vimfiles/bundle/vundle
+    git commit -m 'add_vundle'
+    git push origin master
+    設定は.vimrcを見る。
 
 入れたいプラグイン名.vimrcに書いたら
 vimで:BundleInstallで入る。
