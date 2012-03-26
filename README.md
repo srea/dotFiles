@@ -1,9 +1,13 @@
 # 設定ファイル置き場
-    vimrc
-    bashrc
+* vim 7.2
+* tmux
+* screen
+* bash
+* zsh
 
 ## vim vundle
 プラグインの管理はvundleを使っています。 
+
     git submodule add http://github.com/gmarik/vundle.git vimfiles/bundle/vundle
     git commit -m 'add_vundle'
     git push origin master
@@ -15,7 +19,8 @@ vimを開いて:BundleInstallで入る。
 ※鍵にパスフレーズが設定されていると:BundleInstallでエラーになる。 
 └パスフレーズなしで鍵を作ってそれをgit用にする。
 
-サーバーにSSL通信が出来るソフトウェアを入れないと:BundleInstallでエラーになる。
+* サーバーにSSL通信が出来るソフトウェアを入れないと:BundleInstallでエラーになる。
+
     sudo yum install openssl*
     もしくは
     .gitconfig
