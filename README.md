@@ -3,6 +3,7 @@
     cd ~
     git clone git://github.com/srea/dotFiles.git
     ./setup.sh
+
 * vim 7.2
 * tmux
 * screen
