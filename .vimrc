@@ -4,3 +4,5 @@ source ~/dotFiles/.vimrc.bundle
 source ~/dotFiles/.vimrc.basic
 " テンプレート設定
 source ~/dotFiles/.vimrc.templates
+" PHP設定
+source ~/dotFiles/.vimrc.php_config

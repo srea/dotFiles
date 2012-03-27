@@ -13,7 +13,9 @@ if enc ==? "UTF-8"
   set tenc=UTF-8
 elseif enc ==? "EUCJP"
   set tenc=EUC-JP
-
+elseif enc ==? "SJIS"
+  set tenc=SJIS
+endif
 
 " 検索設定
 set ignorecase
