@@ -30,5 +30,13 @@ alias t='tailf '
 alias sl='ls'
 alias sc='screen'
 
+# dstat用 yum install dstat
+alias dstat-full='dstat -Tclmdrn'
+alias dstat-mem='dstat -Tclm'
+alias dstat-cpu='dstat -Tclr'
+alias dstat-net='dstat -Tclnd'
+alias dstat-disk='dstat -Tcldr'
+
 complete -d cd # cdはディレクトリのみ表示
+
 
