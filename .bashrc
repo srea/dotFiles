@@ -8,6 +8,7 @@ fi
 # User specific aliases and functions
 
 export EDITOR=vim
+export SVN_EDITOR=vim
 
 PATH=$PATH
 
@@ -36,6 +37,7 @@ alias dstat-mem='dstat -Tclm'
 alias dstat-cpu='dstat -Tclr'
 alias dstat-net='dstat -Tclnd'
 alias dstat-disk='dstat -Tcldr'
+alias dstat='dstat -dcm'
 
 complete -d cd # cdはディレクトリのみ表示
 
