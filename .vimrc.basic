@@ -30,7 +30,8 @@ noremap <BS> 
 noremap! <BS> 
 set vb t_vb=                   " ビープ音を消す
 " 表示設定
-set number " nu
+set t_Co=256 " 256色表示する
+set number " 行数を表示する nu
 set ruler
 set nowrap
 set cursorline
