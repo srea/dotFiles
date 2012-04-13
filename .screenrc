@@ -8,10 +8,11 @@ autodetach on
 vbell off
 escape ^t^t
 # ステータスバー
+shelltitle "$ |bash"
 hardstatus on
-hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
-#caption always "%{= Rk} %?%F%{b kr}%? %?%h%:%t (screen #%n)%? %{-}"
-#hardstatus alwayslastline "%{= Gk} %-Lw%40L>%{b kg} %n %t %{-}%+Lw%-040=%{b km} %l %{.b} %Y/%m/%d %C:%s %A "
+#hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+caption always "%{= Wk} %?%F%{b Kw}%? %?%h%:%t (screen #%n)%? %{-}"
+hardstatus alwayslastline "%{= kw} %-Lw%40L>%{b kg} %n %t %{-}%+Lw%-040=%{b kY} %l %{.c} %Y/%m/%d %C:%s %A "
 
 # 現在の背景色で消去する
 defbce "on"

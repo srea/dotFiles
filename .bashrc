@@ -41,4 +41,5 @@ alias dstat='dstat -dcm'
 
 complete -d cd # cdはディレクトリのみ表示
 
-
+# screen用
+PS1='\033k\033\\[\u@\h \W]\$ ' # 打ったコマンドをタイトルにする
