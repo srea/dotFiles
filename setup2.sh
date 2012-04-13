@@ -10,10 +10,10 @@ if [ $ANS = 'y' -o $ANS = 'yes' ] ; then
     { # vimrc
         echo "se nu nowrap ts=4 sw=4 enc=utf-8 fenc=utf-8 tenc=euc-jp fencs=iso-2022-jp,euc-jp,utf-8,shift-jis,ucs2le,ucs-2 "
         echo "colorscheme desert"
-    } >> $HOME/.vimrc
+    } > $HOME/.vimrc
 
     { # bashrc
-        echo "PS1='\033k\033\\\[\u@\h \W]\\$' "
+        echo "PS1='\033k\033\\\[\u@\h \W]\\$ ' "
     } >> $HOME/.bashrc
 
     { # screenrc
@@ -34,7 +34,7 @@ if [ $ANS = 'y' -o $ANS = 'yes' ] ; then
         echo "defscrollback 10000"
         echo "altscreen on"
         echo "autodetach on"
-    } >> $HOME/.screenrc
+    } > $HOME/.screenrc
 fi
 
 exit 0;
