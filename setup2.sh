@@ -13,7 +13,7 @@ if [ $ANS = 'y' -o $ANS = 'yes' ] ; then
     } >> $HOME/.vimrc
 
     { # bashrc
-        echo "PS1='\033k\033\\\[\u@\h \W]\\$\' "
+        echo "PS1='\033k\033\\\[\u@\h \W]\\$' "
     } >> $HOME/.bashrc
 
     { # screenrc
