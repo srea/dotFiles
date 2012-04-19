@@ -31,6 +31,11 @@ alias t='tailf '
 alias sl='ls'
 alias sc='screen'
 
+# 危険防止
+alias rm='rm -i --preserve-root'
+alias mv='mv -i'
+alias cp='cp -i'
+
 # dstat用 yum install dstat
 alias dstat-full='dstat -Tclmdrn'
 alias dstat-mem='dstat -Tclm'
