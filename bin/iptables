@@ -1,0 +1,136 @@
+#!/bin/bash
+
+# インタフェース名定義
+LAN=eth0
+
+# 内部ネットワークのネットマスク取得
+LOCALNET_MASK=ifconfig $LAN|sed -e 's/^.*Mask:\([^ ]*\)$/\1/p' -e d
+
+# 内部ネットワークアドレス取得
+LOCALNET_ADDR=netstat -rn|grep $LAN|grep $LOCALNET_MASK|cut -f1 -d' '
+LOCALNET=$LOCALNET_ADDR/$LOCALNET_MASK
+
+/etc/rc.d/init.d/iptables stop 
+
+/sbin/iptables -F
+/sbin/iptables -X
+
+# init デフォルトルール設定
+/sbin/iptables -P INPUT DROP    # 受信は破棄
+/sbin/iptables -P OUTPUT ACCEPT # 送信は許可
+/sbin/iptables -P FORWARD DROP  # 通過は破棄
+
+# localhostからのアクセスを許可
+/sbin/iptables -A INPUT -i lo -j ACCEPT
+/sbin/iptables -A OUTPUT -o lo -j ACCEPT
+
+# プライベートアドレスからの接続を破棄 
+/sbin/iptables -A INPUT -s 10.0.0.0/8 -j DROP
+/sbin/iptables -A INPUT -s 172.16.0.0/12 -j DROP
+/sbin/iptables -A INPUT -s 192.168.0.0/16 -j DROP
+
+# ブロードキャスト、マルチキャスト宛のパケットを破棄
+# VPSでは要らないし、同じセグメントのパケットなんて欲しくない。DropBoxのLANSyncとか
+#/sbin/iptables -A INPUT -d 255.255.255.255 -j DROP
+#/sbin/iptables -A INPUT -d 224.0.0.1 -j DROP
+ 
+/sbin/iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+
+#----------------------------------------------------------#
+# 各種サービスを公開する場合の設定(ここから)               #
+#----------------------------------------------------------# 
+/sbin/iptables -A INPUT -p tcp --dport 10122 -j ACCEPT # SSH
+/sbin/iptables -A INPUT -p tcp --dport 80    -j ACCEPT # http
+/sbin/iptables -A INPUT -p tcp --dport 8001  -j ACCEPT # node
+/sbin/iptables -A INPUT -p tcp --dport 443   -j ACCEPT # https
+/sbin/iptables -A INPUT -p tcp --dport 3128  -j ACCEPT # squid 
+
+# 内部からのアクセスに対する外部からの返答を許可
+/sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+#####################################################################################
+# 攻撃防御設定
+#####################################################################################
+# SYN Cookiesを有効にする
+#   TCP SYN Flood攻撃対策
+sysctl -w net.ipv4.tcp_syncookies=1 > /dev/null
+sed -i '/net.ipv4.tcp_syncookies/d' /etc/sysctl.conf
+echo "net.ipv4.tcp_syncookies=1" >> /etc/sysctl.conf
+#
+# ブロードキャストアドレス宛pingには応答しない
+# ※Smurf攻撃対策
+sysctl -w net.ipv4.icmp_echo_ignore_broadcasts=1 > /dev/null
+sed -i '/net.ipv4.icmp_echo_ignore_broadcasts/d' /etc/sysctl.conf
+echo "net.ipv4.icmp_echo_ignore_broadcasts=1" >> /etc/sysctl.conf
+#
+# ICMP Redirectパケットは拒否
+sed -i '/net.ipv4.conf.*.accept_redirects/d' /etc/sysctl.conf
+for dev in ls /proc/sys/net/ipv4/conf/
+do
+    sysctl -w net.ipv4.conf.$dev.accept_redirects=0 > /dev/null
+    echo "net.ipv4.conf.$dev.accept_redirects=0" >> /etc/sysctl.conf
+done
+#
+# Source Routedパケットは拒否
+sed -i '/net.ipv4.conf.*.accept_source_route/d' /etc/sysctl.conf
+for dev in ls /proc/sys/net/ipv4/conf/
+do
+    sysctl -w net.ipv4.conf.$dev.accept_source_route=0 > /dev/null
+    echo "net.ipv4.conf.$dev.accept_source_route=0" >> /etc/sysctl.conf
+done
+#
+# フラグメント化されたパケットはログを記録して破棄
+/sbin/iptables -A INPUT -f -j LOG --log-prefix '[IPTABLES FRAGMENT] : '
+/sbin/iptables -A INPUT -f -j DROP
+#
+# 外部とのNetBIOS関連のアクセスはログを記録せずに破棄
+# ※不要ログ記録防止
+/sbin/iptables -A INPUT -s ! $LOCALNET -p tcp -m multiport --dports 135,137,138,139,445 -j DROP
+/sbin/iptables -A INPUT -s ! $LOCALNET -p udp -m multiport --dports 135,137,138,139,445 -j DROP
+/sbin/iptables -A OUTPUT -d ! $LOCALNET -p tcp -m multiport --sports 135,137,138,139,445 -j DROP
+/sbin/iptables -A OUTPUT -d ! $LOCALNET -p udp -m multiport --sports 135,137,138,139,445 -j DROP
+#
+# 1秒間に4回を超えるpingはログを記録して破棄
+# ※Ping of Death攻撃対策
+/sbin/iptables -N LOG_PINGDEATH
+/sbin/iptables -A LOG_PINGDEATH -m limit --limit 1/s --limit-burst 4 -j ACCEPT
+/sbin/iptables -A LOG_PINGDEATH -j LOG --log-prefix '[IPTABLES PINGDEATH] : '
+/sbin/iptables -A LOG_PINGDEATH -j DROP
+/sbin/iptables -A INPUT -p icmp --icmp-type echo-request -j LOG_PINGDEATH
+#
+# 全ホスト(ブロードキャストアドレス、マルチキャストアドレス)宛パケットはログを記録せずに破棄
+# ※不要ログ記録防止
+/sbin/iptables -A INPUT -d 255.255.255.255 -j DROP
+/sbin/iptables -A INPUT -d 224.0.0.1 -j DROP
+#
+# 113番ポート(IDENT)へのアクセスには拒否応答
+# ※メールサーバ等のレスポンス低下防止
+/sbin/iptables -A INPUT -p tcp --dport 113 -j REJECT --reject-with tcp-reset
+#
+#####################################################################################
+
+# 拒否IPアドレスからのアクセスはログを記録せずに破棄
+# ※拒否IPアドレスは/root/script/deny_ipに1行ごとに記述しておくこと
+# (/root/script/deny_ipがなければなにもしない)
+if [ -s /root/script/deny_ip ]; then
+    for ip in cat /root/script/deny_ip
+    do
+        /sbin/iptables -I INPUT -s $ip -j DROP
+    done
+fi
+
+# 上記のルールにマッチしなかったアクセスはログを記録して破棄
+/sbin/iptables -A INPUT -m limit --limit 1/s -j LOG --log-prefix '[IPTABLES INPUT] : '
+/sbin/iptables -A INPUT -j DROP
+/sbin/iptables -A FORWARD -m limit --limit 1/s -j LOG --log-prefix '[IPTABLES FORWARD] : '
+/sbin/iptables -A FORWARD -j DROP
+
+# 設定をセーブして再起動
+/etc/rc.d/init.d/iptables save 
+/sbin/service iptables restart
+
+# 設定内容を出力して確認
+echo '======================================================='
+/sbin/iptables -L --line-number
+#cat /etc/sysconfig/iptables
+echo '======================================================='
