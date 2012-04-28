@@ -1,7 +1,6 @@
 # dotfile環境設定
     
-    cd ~
-    git clone git://github.com/srea/dotFiles.git
+    cd ~ && git clone git://github.com/srea/dotFiles.git && cd dotFiles
     git submodule add http://github.com/gmarik/vundle.git vimfiles/bundle/vundle
     ./setup.sh
 
