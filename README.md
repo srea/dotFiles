@@ -1,8 +1,11 @@
-# 個人設定ファイル置き場
+# dotfile環境設定
     
     cd ~
     git clone git://github.com/srea/dotFiles.git
+    git submodule add http://github.com/gmarik/vundle.git vimfiles/bundle/vundle
     ./setup.sh
+
+# 主に使ってるもの
 
 * vim 7.2
 * tmux
@@ -10,21 +13,17 @@
 * bash
 * zsh
 
-## vim vundle
-プラグインの管理はvundleを使っています。 
+# その他
 
-    git submodule add http://github.com/gmarik/vundle.git vimfiles/bundle/vundle
-    git commit -m 'add_vundle'
-    git push origin master
-    設定は.vimrcを見る。
+プラグインの管理はvundleを使っています。   
+    
+入れたいプラグイン名.vimrc.bundleに書いたら   
+vimを開いて:BundleInstallで入る。  
 
-入れたいプラグイン名.vimrc.bundleに書いたら 
-vimを開いて:BundleInstallで入る。
+※鍵にパスフレーズが設定されていると:BundleInstallでエラーになる。   
+└パスフレーズなしで鍵を作ってそれをgit用にする。  
 
-※鍵にパスフレーズが設定されていると:BundleInstallでエラーになる。 
-└パスフレーズなしで鍵を作ってそれをgit用にする。
-
-* サーバーにSSL通信が出来るソフトウェアを入れないと:BundleInstallでエラーになる。
+* サーバーにSSL通信が出来るソフトウェアを入れないと:BundleInstallでエラーになる。  
 
     sudo yum install openssl*
     もしくは
