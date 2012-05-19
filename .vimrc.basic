@@ -17,12 +17,13 @@ elseif enc ==? "SJIS"
   set tenc=SJIS
 endif
 
-
 " 検索設定
 set ignorecase
 set smartcase
 set incsearch
 set wrapscan " 繰り返して検索する nowrapscan
+set hlsearch " 検索結果をhighlight
+
 " キー動作設定
 set backspace=indent,eol,start " BackSpaceで色々消せるように
 noremap                   " ^Hは[Ctrl + v][DEL]、^Hは[Ctrl + v][Ctrl + H]で入力する。
@@ -51,8 +52,8 @@ set whichwrap=b,s,h,l,<,>,[,] " 行末で次の行に行くため
 set formatoptions+=m          " マルチバイト対応
 set hidden                    " 編集中のファイルを開けるように 
 " タブ設定
-set tabstop    =4 " ts
-set shiftwidth =4 " sw >> <<
+set tabstop    =4 " ts タブを何文字に展開するか
+set shiftwidth =4 " sw >> << vimがインデントする時の幅
 set showtabline=2
 set expandtab " tab to space
 " 色設定
@@ -71,14 +72,28 @@ set autoread   " 変更されたら自動読み直し
 """"""""""""""""""
 " キーマッピング "
 """"""""""""""""""
+" imap insert mode
+" vmap visual
+" nmap normal
+" cmap command
+" map  normal + visual
+" map! insert + command
+" noremap no remap 
+
+
 " インサートモードでもhjkl移動
-" http://d.hatena.ne.jp/geiinbashoku2/20090701/p1
-"imap <C-h> <Left>
-"imap <C-j> <Down>
-"imap <C-k> <Up>
-"imap <C-l> <Right>
+" http://d.hatena.ne.jp/geiinbashoku2/20090701/p1 
+imap <C-h> <Left>
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-l> <Right>
+imap <C-u> <ESC>u 
+nmap <C-u> u 
+map <C-p> <ESC>;w!<CR>;!php -l %<CR>
+
 " BackSpaceもDelete
-imap <C-u> <BS>
+imap <BS> <C-x>
+
 "imap <C-i> <Del> "Macのタブキーが削除される。
 " 現在行の下に空行
 imap <C-o> <ESC>o
@@ -86,11 +101,17 @@ imap <C-o> <ESC>o
 noremap <CR> o<ESC>
 
 " ショートカット
-noremap <C-c> <ESC>:q<CR>
+noremap <C-c> <ESC>:wq<CR>
 
 " Mac USキーボード
 noremap ; :
 noremap : ;
+
+" タブショートカット
+nmap H gT
+nmap L gt
+"map <Left> gT
+"map <Right> gt
 
 " CursorLine
 :hi clear CursorLine
