@@ -5,7 +5,7 @@
 set encoding     =utf-8 " enc
 set termencoding =utf-8 " tenc
 set fileencoding =utf-8 " fenc
-set fileencodings=iso-2022-jp,utf-8,cp932,euc-jp
+set fileencodings=utf-8,cp932,euc-jp
 
 " termencoding動的
 let enc = split($LANG,'\.')[-1]
@@ -42,11 +42,11 @@ set ambiwidth=double
 set showcmd
 set cmdheight=2
 set laststatus=2 " 下部バーを常に表示
-set statusline=%<%f\ %m%r%h%w%{'[^_^]['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+set statusline=%<%f\ %m%r%h%w%{'[＼(^o^)／背筋しっかり！]['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 " 編集設定
-"set nosmartindent             " 自動インデント無効
-"set noautoindent
+set nosmartindent             " 自動インデント無効
+set noai " noautoindent 自動インデント無効
 set whichwrap=b,s,h,l,<,>,[,] " 行末で次の行に行くため
 set formatoptions+=m          " マルチバイト対応
 set hidden                    " 編集中のファイルを開けるように 

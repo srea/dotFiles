@@ -30,6 +30,8 @@ alias ll='ls -lath '
 alias t='tailf '
 alias sl='ls'
 alias sc='screen'
+alias g='grep'
+alias t='tailf'
 
 # 危険防止
 alias rm='rm -i --preserve-root'
