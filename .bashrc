@@ -17,7 +17,7 @@ HISTSIZE=10000
 HISTFILESIZE=10000  
 HISTCONTROL=ignoredups  # 同じコマンドの連続は記録しない 
 export HISTSIZE HISTFILESIZE HISTCONTROL
-
+export LANG=ja_JP.eucJP
 # エイリアス設定
 alias h='history 32'  
 alias v='vim'  
