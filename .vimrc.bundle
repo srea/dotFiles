@@ -8,7 +8,7 @@ filetype off
 set rtp+=~/dotFiles/vimfiles/bundle/vundle/
 call vundle#rc()
 " vim.org
-"Bundle 'ZenCoding'
+Bundle 'ZenCoding'
 " github
 Bundle 'thinca/vim-quickrun'
 Bundle 'Gist.vim'
@@ -25,4 +25,4 @@ Bundle 'Shougo/neocomplcache'
 " マークダウンプラグイン欲しい
 " PHPデバッグプラグイン欲しい
 
-filetype plugin indent on " required!
+"filetype plugin indent on " required! 2012-07-22これがあるとインデントがグチャグチャ

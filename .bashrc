@@ -22,14 +22,21 @@ export LANG=ja_JP.eucJP
 alias h='history 32'  
 alias v='vim'  
 alias vi='vim'  
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../../'
-alias l='ls -lat '
-alias ll='ls -lat '
+alias cd..='cd ..;ll;pwd;'
+alias ..='cd ..;ll;pwd;'
+alias ...='cd ../../;ll;pwd;'
+alias l='ls -lath '
+alias ll='ls -lath '
 alias t='tailf '
 alias sl='ls'
 alias sc='screen'
+alias g='grep'
+alias t='tailf'
+
+# 危険防止
+alias rm='rm -i --preserve-root'
+alias mv='mv -i'
+alias cp='cp -i'
 
 # dstat用 yum install dstat
 alias dstat-full='dstat -Tclmdrn'
@@ -41,4 +48,5 @@ alias dstat='dstat -dcm'
 
 complete -d cd # cdはディレクトリのみ表示
 
-
+# screen用
+PS1='\033k\033\\[\u@\h \W]\$ ' # 打ったコマンドをタイトルにする

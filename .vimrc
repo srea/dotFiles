@@ -6,3 +6,4 @@ source ~/dotFiles/.vimrc.basic
 source ~/dotFiles/.vimrc.templates
 " PHP設定
 source ~/dotFiles/.vimrc.php_config
+autocm FileType * setlocal formatoptions-=ro
