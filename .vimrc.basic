@@ -92,7 +92,7 @@ nmap <C-u> u
 map <C-p> <ESC>;w!<CR>;!php -l %<CR>
 
 " BackSpaceもDelete
-imap <BS> <C-x>
+"imap <BS> <C-x>
 
 "imap <C-i> <Del> "Macのタブキーが削除される。
 " 現在行の下に空行
@@ -104,8 +104,8 @@ noremap <CR> o<ESC>
 noremap <C-c> <ESC>:wq<CR>
 
 " Mac USキーボード
-noremap ; :
-noremap : ;
+"noremap ; :
+"noremap : ;
 
 " タブショートカット
 nmap H gT
