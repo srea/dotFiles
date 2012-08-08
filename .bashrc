@@ -7,18 +7,21 @@ fi
 
 # User specific aliases and functions
 
+function s {
+    ssh 192.168.$1
+}
+
 export EDITOR=vim
 export SVN_EDITOR=vim
 
 PATH=$PATH
 
-# コマンド履歴設定 
 HISTSIZE=10000  
 HISTFILESIZE=10000  
 HISTCONTROL=ignoredups  # 同じコマンドの連続は記録しない 
 export HISTSIZE HISTFILESIZE HISTCONTROL
+
 #export LANG=ja_JP.eucJP
-# エイリアス設定
 alias h='history 32'  
 alias v='vim'  
 alias vi='vim'  
@@ -33,12 +36,12 @@ alias sc='screen'
 alias g='grep'
 alias t='tailf'
 
-# 危険防止
+#
 alias rm='rm -i --preserve-root'
 alias mv='mv -i'
 alias cp='cp -i'
 
-# dstat用 yum install dstat
+# dstat yum install dstat
 alias dstat-full='dstat -Tclmdrn'
 alias dstat-mem='dstat -Tclm'
 alias dstat-cpu='dstat -Tclr'
@@ -46,7 +49,7 @@ alias dstat-net='dstat -Tclnd'
 alias dstat-disk='dstat -Tcldr'
 alias dstat='dstat -dcm'
 
-complete -d cd # cdはディレクトリのみ表示
+complete -d cd # cd
 
-# screen用
-PS1='\033k\033\\[\u@\h \W]\$ ' # 打ったコマンドをタイトルにする
+# screen
+# PS1='\033k\033\\[\u@\h \W]\$ ' #
