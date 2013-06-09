@@ -44,6 +44,7 @@ set showcmd
 set cmdheight=2
 set laststatus=2 " 下部バーを常に表示
 set statusline=%<%f\ %m%r%h%w%{'[＼(^o^)／背筋しっかり！]['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 " 編集設定
 set nosmartindent             " 自動インデント無効
@@ -89,10 +90,10 @@ imap <C-k> <Up>
 imap <C-l> <Right>
 imap <C-u> <ESC>u 
 nmap <C-u> u 
-map <C-p> <ESC>;w!<CR>;!php -l %<CR>
+"map <C-p> <ESC>;w!<CR>;!php -l %<CR>
 
 " BackSpaceもDelete
-imap <BS> <C-x>
+"imap <BS> <C-x>
 
 "imap <C-i> <Del> "Macのタブキーが削除される。
 " 現在行の下に空行
