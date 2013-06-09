@@ -48,7 +48,7 @@ set statusline=%<%f\ %m%r%h%w%{'[＼(^o^)／背筋しっかり！]['.(&fenc!=''?
 " 編集設定
 set nosmartindent             " 自動インデント無効
 set noai " noautoindent 自動インデント無効
-set whichwrap=b,s,h,l,<,>,[,] " 行末で次の行に行くため
+"set whichwrap=b,s,h,l,<,>,[,] " 行末で次の行に行くため
 set formatoptions+=m          " マルチバイト対応
 set hidden                    " 編集中のファイルを開けるように 
 " タブ設定
@@ -101,11 +101,11 @@ imap <C-o> <ESC>o
 noremap <CR> o<ESC>
 
 " ショートカット
-noremap <C-c> <ESC>:wq<CR>
+"noremap <C-c> <ESC>:wq<CR>
 
 " Mac USキーボード
-noremap ; :
-noremap : ;
+"noremap ; :
+"noremap : ;
 
 " タブショートカット
 nmap H gT
