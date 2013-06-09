@@ -25,9 +25,9 @@ fi
 #fi
 
 # tmux自動起動
-#if [ $TERM != "tmux" ]; then
-#     exec tmux
-#fi
+if [ $TERM != "tmux" ]; then
+     tmux a -t test
+fi
 
 
 # User specific environment and startup programs
