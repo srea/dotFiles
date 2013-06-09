@@ -19,13 +19,16 @@
 入れたいプラグイン名.vimrc.bundleに書いたら   
 vimを開いて:BundleInstallで入る。  
 
-※鍵にパスフレーズが設定されていると:BundleInstallでエラーになる。   
+※githubの鍵にパスフレーズが設定されていると:BundleInstallでエラーになる。   
 └パスフレーズなしで鍵を作ってそれをgit用にする。  
 
-* サーバーにSSL通信が出来るソフトウェアを入れないと:BundleInstallでエラーになる。  
+(サーバーにSSL通信が出来るソフトウェアを入れないと:BundleInstallでエラーになる)  
 
     sudo yum install openssl*
-    もしくは
+
+
+or
+
     .gitconfig
     [http]
         sslVerify = false
