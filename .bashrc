@@ -10,7 +10,7 @@ fi
 export EDITOR=vim
 export SVN_EDITOR=vim
 
-PATH=$PATH
+PATH=$PATH:/Users/tamazawayuuki/bin/sman
 
 # コマンド履歴設定 
 HISTSIZE=10000  

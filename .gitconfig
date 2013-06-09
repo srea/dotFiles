@@ -1,6 +1,6 @@
 [user]
-  name = yuki tamazawa
-  email = yuki@tamazawa.net
+	name = yuki tamazawa
+	email = yuki@tamazawa.net
 [color]
   ui = true
 [alias]
@@ -9,7 +9,13 @@
   st = status
   br = branch
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/tamazawayuuki/.gitignore_global
   editor = vi
 [http]
   sslVerify = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
