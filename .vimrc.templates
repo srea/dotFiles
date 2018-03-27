@@ -1,2 +1,0 @@
-autocmd BufNewFile *.sh 0r $HOME/dotFiles/vimfiles/templates/sh.txt
-autocmd BufNewFile *.php 0r $HOME/dotFiles/vimfiles/templates/php.txt
