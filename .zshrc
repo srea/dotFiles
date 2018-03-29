@@ -1,3 +1,9 @@
+# Prezto
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
 # local
 
 if [ -f ~/.zsh_local ]; then
