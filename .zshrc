@@ -10,7 +10,7 @@ if [ -f ~/.zsh_local ]; then
   source ~/.zsh_local
 fi
 
-# peco ctrl+r
+# peco history
 
 function peco-history-selection() {
     BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
@@ -20,6 +20,17 @@ function peco-history-selection() {
 
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
+
+# peco snippets
+
+function peco-snippets() {
+
+    local SNIPPETS=$(grep -v "^#" ~/.snippets | peco --query "$LBUFFER" | pbcopy)
+    zle clear-screen
+}
+
+zle -N peco-snippets
+bindkey '^x^s' peco-snippets
 
 # tmux
 
@@ -34,6 +45,13 @@ eval "$(rbenv init -)"
 
 # zsh config
 
+autoload -U compinit
+compinit
+
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
+
+# github
+
+eval "$(hub alias -s)"

@@ -1,0 +1,19 @@
+
+# git
+git rm --cached `git ls-files --full-name -i --exclude-from=.gitignore`
+git reset --hard ^HEAD
+git reset --soft HEAD^
+git reset --merge
+# for Pull Request (brew install ffmpeg)
+ffmpeg -i input.mov -vf scale=320:-1 -an -r 10 output.gif
+# empty commit
+git ci --allow-empty -m "fixed #"
+# ats
+nscurl --ats-diagnostics --verbose https://
+# for iOS
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+codesign -d --entitlements :- ios.app
+codesign -vv -d ios.app
+security find-identity -v -p codesigning
+xcrun lipo -info 実行ファイル
+otool -L ios.app/ios

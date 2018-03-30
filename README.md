@@ -1,6 +1,6 @@
 # dependency
 
-- `brew install peco tmux`
+- `brew install peco tmux hub`
 - https://github.com/sorin-ionescu/prezto (theme: steeef)
 
 # setup

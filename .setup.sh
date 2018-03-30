@@ -1,14 +1,11 @@
 #!/bin/bash
 
-DOT_FILES=( .vimrc .bash_profile .bash_logout .bashrc .zshrc .gitconfig .gitmodules .gitignore .screenrc .tmux.conf)
+DOT_FILES=( .vimrc .zshrc .tmux.conf .snippets)
 
 for file in ${DOT_FILES[@]}
 do
-    ln -fs $HOME/dotFiles/$file $HOME/$file
-    #. $file
+    ln -fs $PWD/$file $HOME/$file
 done
 
-ln -fs $HOME/dotFiles/vimfiles ~/.vim
-
-mkdir ~/bin
-cp -ap ./bin/* ~/bin/
+# mkdir ~/bin
+# cp -ap ./bin/* ~/bin/
