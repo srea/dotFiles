@@ -23,4 +23,11 @@ bindkey '^R' peco-history-selection
 
 # tmux
 
-[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux a -t root
+## at once
+if [ $SHLVL = 1 ]; then
+  tmux
+fi
+
+# ruby
+
+eval "$(rbenv init -)"

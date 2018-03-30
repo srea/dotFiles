@@ -1,6 +1,9 @@
+# dependency
+
+- `brew install peco tmux`
+- https://github.com/sorin-ionescu/prezto (theme: steeef)
+
 # setup
-    
-    $ brew install peco tmux
 
     $ git clone git://github.com/srea/dotFiles.git
     $ cd dotFiles
