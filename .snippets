@@ -4,13 +4,18 @@ git rm --cached `git ls-files --full-name -i --exclude-from=.gitignore`
 git reset --hard ^HEAD
 git reset --soft HEAD^
 git reset --merge
+git log master..rc- --merges --first-parent --reverse --pretty=format:"- %b(%s)" | sed -E 's/\(Merge pull request (#[0-9]+) from ..*$/ \1/'
+
 # for Pull Request (brew install ffmpeg)
 ffmpeg -i input.mov -vf scale=320:-1 -an -r 10 output.gif
+
 # empty commit
 git ci --allow-empty -m "fixed #"
+
 # ats
 nscurl --ats-diagnostics --verbose https://
-# for iOS
+
+# for iOS Xcode
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 sudo xcode-select -s /Applications/Xcode_9_2.app/Contents/Developer
 codesign -d --entitlements :- ios.app
