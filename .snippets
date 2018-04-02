@@ -12,8 +12,10 @@ git ci --allow-empty -m "fixed #"
 nscurl --ats-diagnostics --verbose https://
 # for iOS
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+sudo xcode-select -s /Applications/Xcode_9_2.app/Contents/Developer
 codesign -d --entitlements :- ios.app
 codesign -vv -d ios.app
 security find-identity -v -p codesigning
 xcrun lipo -info 実行ファイル
 otool -L ios.app/ios
+rm -rf ~/Library/Developer/Xcode/DerivedData/*
