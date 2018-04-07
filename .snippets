@@ -9,13 +9,17 @@ git reset --hard ^HEAD
 git reset --soft HEAD^
 git reset --merge
 git remote set-branches origin '*' # unshallow後にremote branchを取得する
+git log 3.14.2..rc-3.15.0 --merges --first-parent --reverse --pretty=format:"- %b(%s)" | sed -E 's/\(Merge pull request (#[0-9]+) from ..*$/ \1/'
 # for Pull Request (brew install ffmpeg)
 ffmpeg -i input.mov -vf scale=320:-1 -an -r 10 output.gif
+
 # empty commit
 git ci --allow-empty -m "fixed #"
+
 # ats
 nscurl --ats-diagnostics --verbose https://
-# for iOS
+
+# for iOS Xcode
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 sudo xcode-select -s /Applications/Xcode_9_2.app/Contents/Developer
 codesign -d --entitlements :- ios.app
@@ -24,3 +28,9 @@ security find-identity -v -p codesigning
 xcrun lipo -info 実行ファイル
 otool -L ios.app/ios
 rm -rf ~/Library/Developer/Xcode/DerivedData/*
+<<<<<<< HEAD
+=======
+
+# ssh
+ssh-keygen -t rsa -b 4096 -C "Comment"
+>>>>>>> 582a6f960c7b88c3abfafd90a98371117c788c70
