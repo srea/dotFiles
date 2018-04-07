@@ -55,3 +55,6 @@ SAVEHIST=1000000
 # github
 
 eval "$(hub alias -s)"
+
+# git
+alias -g br='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g" | xargs git checkout`'   

@@ -1,9 +1,14 @@
+# openssl
+openssl rsa -in id_rsa -out id_rsa # 鍵を取り除く
+# gem
+sudo gem install cocoapods -n /usr/local/bin
 
 # git
 git rm --cached `git ls-files --full-name -i --exclude-from=.gitignore`
 git reset --hard ^HEAD
 git reset --soft HEAD^
 git reset --merge
+git remote set-branches origin '*' # unshallow後にremote branchを取得する
 # for Pull Request (brew install ffmpeg)
 ffmpeg -i input.mov -vf scale=320:-1 -an -r 10 output.gif
 # empty commit

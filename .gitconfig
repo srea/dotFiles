@@ -1,0 +1,16 @@
+[include]
+    path = ~/.gitconfig.local
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	st = status
+	df = diff
+	co = checkout
+	br = branch
