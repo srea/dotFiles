@@ -1,3 +1,10 @@
+# Android
+
+path=(
+    ~/Library/Android/sdk/platform-tools(N-/)
+    $path
+)
+
 # Prezto
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -57,4 +64,4 @@ SAVEHIST=1000000
 eval "$(hub alias -s)"
 
 # git
-alias -g br='`git branch -a | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g" | xargs git checkout`'   
+alias -g br='`git branch -a | grep -v "remotes" | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g" | xargs git checkout`'   
