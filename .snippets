@@ -34,3 +34,10 @@ ssh-keygen -t rsa -b 4096 -C "Comment"
 
 # android
 apktool d a.apk
+adb shell pm list packages | grep com.android.systemui
+adb shell pm path com.android.systemui
+adb pull /system/priv-app/SystemUI/SystemUI.apk
+
+# mitmproxy
+
+mitmproxy -p 8080
