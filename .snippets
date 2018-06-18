@@ -31,6 +31,7 @@ security find-identity -v -p codesigning
 xcrun lipo -info 実行ファイル
 otool -L ios.app/ios
 rm -rf ~/Library/Developer/Xcode/DerivedData/*
+xcrun instruments -w 'iPhone X'
 
 # ssh
 ssh-keygen -t rsa -b 4096 -C "Comment"
