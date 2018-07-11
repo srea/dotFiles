@@ -15,6 +15,7 @@ git rev-list HEAD | wc -l | tr -d ' '
 
 # for Pull Request (brew install ffmpeg)
 ffmpeg -i input.mov -vf scale=320:-1 -an -r 10 output.gif
+ffmpeg -i IMG_0077.MOV -vcodec copy -map 0:0 iOS_VoIP.mp4 # 音声を削除
 
 # empty commit
 git ci --allow-empty -m "fixed #"
