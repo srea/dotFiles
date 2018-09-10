@@ -65,3 +65,9 @@ eval "$(hub alias -s)"
 
 # git
 alias -g br='`git branch -a | grep -v "remotes" | peco --prompt "GIT BRANCH>" | head -n 1 | sed -e "s/^\*\s*//g" | xargs git checkout`'   
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# xcode
+
+alias openx='`open $(find . -name "*.xcworkspace" -depth 1 -print -quit)`'
