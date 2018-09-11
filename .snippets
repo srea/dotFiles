@@ -4,6 +4,7 @@ openssl rsa -in id_rsa -out id_rsa # 鍵を取り除く
 sudo gem install cocoapods -n /usr/local/bin
 
 # git
+git archive master --output=master.tar.gz
 git pull-request -b v4/master -m "[WIP] "
 git rm --cached `git ls-files --full-name -i --exclude-from=.gitignore`
 git reset --hard ^HEAD
