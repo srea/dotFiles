@@ -1,6 +1,6 @@
 # dependency
 
-- `brew install zsh peco tmux hub wget`
+- `brew install zsh zsh-completions peco tmux hub wget`
 - https://github.com/sorin-ionescu/prezto (theme: steeef)
 
 # setup
