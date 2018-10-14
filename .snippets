@@ -36,6 +36,9 @@ xcrun lipo -info 実行ファイル
 otool -L ios.app/ios
 rm -rf ~/Library/Developer/Xcode/DerivedData/*
 xcrun instruments -w 'iPhone X'
+export DEVELOPER_DIR=`xcode-select -p` && /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash crashlog.crash xx.dSYM 
+xcrun atos -o xxx.app/xxx 0x100f78000 0x000000010158bc58 # to class method
+xcrun dwarfdump --uuid xxx.app/xxx # support architecture list
 
 # ssh
 ssh-keygen -t rsa -b 4096 -C "Comment"
