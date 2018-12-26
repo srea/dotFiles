@@ -71,3 +71,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # xcode
 
 alias openx='`open $(find . -name "*.xcworkspace" -depth 1 -print -quit)`'
+
+# debug
+
+function urlencode {
+  echo "$1" | nkf -WwMQ | sed 's/=$//g' | tr = % | tr -d '\n'
+}
