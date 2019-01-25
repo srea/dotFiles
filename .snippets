@@ -20,6 +20,9 @@ git branch --merged | grep -vE '^\*|master$|develop$' | xargs -I % git branch -d
 ffmpeg -i input.mov -vf scale=320:-1 -an -r 10 output.gif
 ffmpeg -i IMG_0077.MOV -vcodec copy -map 0:0 iOS_VoIP.mp4 # 音声を削除
 
+# convert
+mogrify -format pdf xx.svg
+
 # empty commit
 git ci --allow-empty -m "fixed #"
 
@@ -35,6 +38,7 @@ security find-identity -v -p codesigning
 xcrun lipo -info 実行ファイル
 otool -L ios.app/ios
 rm -rf ~/Library/Developer/Xcode/DerivedData/*
+rm -rf ~/Library/Caches/org.carthage.CarthageKit/DerivedData/*
 xcrun instruments -w 'iPhone X'
 ## https://developer.apple.com/library/archive/technotes/tn2151/_index.html
 export DEVELOPER_DIR=`xcode-select -p` && /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash crashlog.crash xx.dSYM 
