@@ -64,3 +64,9 @@ watch -n 0.5 "wget -S --spider -nv --no-cache --no-cookies --no-dns-cache --user
 # unix
 
 nmap -sT srea.jp
+
+# docker
+
+docker build ./ -t imagenamee # from Dockerfile
+docker run -d -p 4649:80 imagename # Dockerfile -> Image
+docker exec -it ead3b5a857f5 /bin/bash # Image -> Container
