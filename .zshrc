@@ -30,14 +30,13 @@ bindkey '^R' peco-history-selection
 
 # peco snippets
 
-function peco-snippets() {
-
-    local SNIPPETS=$(grep -v "^#" ~/.snippets | peco --query "$LBUFFER" | pbcopy)
-    zle clear-screen
+function peco-select-snippet() {
+  BUFFER=$(cat ~/.snippets | peco)
+  CURSOR=$#BUFFER
+  zle -R -c
 }
-
-zle -N peco-snippets
-bindkey '^x^s' peco-snippets
+zle -N peco-select-snippet
+bindkey '^x^s' peco-select-snippet
 
 # tmux
 
