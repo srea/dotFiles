@@ -66,6 +66,7 @@ watch -n 0.5 "wget -S --spider -nv --no-cache --no-cookies --no-dns-cache --user
 
 # unix
 nmap -sT srea.jp
+lsof -i:8080 # ポートを使ってるプロセス確認
 
 # docker
 docker build ./ -t imagenamee # from Dockerfile
