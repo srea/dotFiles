@@ -1,5 +1,6 @@
 # openssl
 openssl rsa -in id_rsa -out id_rsa # 鍵を取り除く
+
 # gem
 sudo gem install cocoapods -n /usr/local/bin
 
@@ -40,6 +41,9 @@ otool -L ios.app/ios
 rm -rf ~/Library/Developer/Xcode/DerivedData/*
 rm -rf ~/Library/Caches/org.carthage.CarthageKit/DerivedData/*
 xcrun instruments -w 'iPhone X'
+instruments -s devices # udid list
+xcrun simctl list | egrep '(Booted)'
+
 ## https://developer.apple.com/library/archive/technotes/tn2151/_index.html
 export DEVELOPER_DIR=`xcode-select -p` && /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash crashlog.crash xx.dSYM 
 xcrun atos -o xxx.app/xxx 0x100f78000 0x000000010158bc58 # to class method
@@ -56,7 +60,6 @@ adb shell pm path com.android.systemui
 adb pull /system/priv-app/SystemUI/SystemUI.apk
 
 # mitmproxy
-
 mitmproxy -p 8080
 
 # xcode
@@ -66,5 +69,10 @@ open $(find . -name "*.xcworkspace" -depth 1 -print -quit)
 watch -n 0.5 "wget -S --spider -nv --no-cache --no-cookies --no-dns-cache --user-agent='' https://.json -a ~/Desktop/xxx.log"
 
 # unix
-
 nmap -sT srea.jp
+lsof -i:8080 # ポートを使ってるプロセス確認
+
+# docker
+docker build ./ -t imagenamee # from Dockerfile
+docker run -d -p 4649:80 imagename # Dockerfile -> Image
+docker exec -it ead3b5a857f5 /bin/bash # Image -> Container
