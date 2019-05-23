@@ -1,6 +1,10 @@
 # openssl
 openssl rsa -in id_rsa -out id_rsa # 鍵を取り除く
 
+# curl
+curl -X POST -H "Content-Type: application/json" -d '{"key":"value"}' localhost
+echo "{}" | curl URL -X POST -H "Content-Type: application/json" -d @-
+
 # gem
 sudo gem install cocoapods -n /usr/local/bin
 
@@ -26,6 +30,9 @@ git ci --allow-empty -m "fixed #"
 
 # ats
 nscurl --ats-diagnostics --verbose https://
+
+# android
+keytool -v -list -keystore xxx.keystore
 
 # for iOS Xcode
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
