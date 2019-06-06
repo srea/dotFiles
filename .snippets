@@ -67,6 +67,11 @@ mitmproxy -p 8080
 
 # xcode
 open $(find . -name "*.xcworkspace" -depth 1 -print -quit)
+xcodebuild -arch x86_64 -sdk iphonessimulator12.2 -workspace xxx.xcworkspace -scheme xxx
+xcodebuild -arch x86_64 -sdk iphonessimulator12.2 -target xxx -configuration Release -showBuildSettings
+
+xcodebuild -list # Show (Targets, Build Configuration, Schemes)
+xcodebuild -showsdks # showSDKs
 
 # web check
 watch -n 0.5 "wget -S --spider -nv --no-cache --no-cookies --no-dns-cache --user-agent='' https://.json -a ~/Desktop/xxx.log"
@@ -79,3 +84,8 @@ lsof -i:8080 # ポートを使ってるプロセス確認
 docker build ./ -t imagenamee # from Dockerfile
 docker run -d -p 4649:80 imagename # Dockerfile -> Image
 docker exec -it ead3b5a857f5 /bin/bash # Image -> Container
+
+# archive
+zip -r xxx.zip ./xxx.pdf -x "*.DS_Store" # for win
+zipcloak xxx.zip # password
+tar czf xxx.tar.gz dirx
