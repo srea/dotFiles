@@ -47,6 +47,7 @@ rm -rf ~/Library/Developer/Xcode/DerivedData/*
 xcrun instruments -w 'iPhone X'
 instruments -s devices # udid list
 xcrun simctl list | egrep '(Booted)'
+security cms -D -i ~/Library/MobileDevice/Provisioning\ Profiles/xxx.mobileprovision # プロビジョニング内を見る
 
 ## https://developer.apple.com/library/archive/technotes/tn2151/_index.html
 export DEVELOPER_DIR=`xcode-select -p` && /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash crashlog.crash xx.dSYM 
