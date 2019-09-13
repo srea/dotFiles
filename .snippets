@@ -34,6 +34,8 @@ nscurl --ats-diagnostics --verbose https://
 # android
 keytool -v -list -keystore xxx.keystore
 adb shell service call iphonesubinfo 1 | awk -F "'" '{print $2}' | sed '1 d' | tr -d '.' | awk '{print}' ORS= # IMEI
+adb shell pm list packages | grep xxx | # search apk
+
 
 # for iOS Xcode
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
