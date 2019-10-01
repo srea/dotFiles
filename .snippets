@@ -37,6 +37,8 @@ nscurl --ats-diagnostics --verbose https://
 # android
 keytool -v -list -keystore xxx.keystore
 adb shell service call iphonesubinfo 1 | awk -F "'" '{print $2}' | sed '1 d' | tr -d '.' | awk '{print}' ORS= # IMEI
+adb shell pm list packages | grep xxx | # search apk
+
 
 # for iOS Xcode
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
@@ -95,3 +97,9 @@ docker exec -it ead3b5a857f5 /bin/bash # Image -> Container
 zip -r xxx.zip ./xxx.pdf -x "*.DS_Store" # for win
 zipcloak xxx.zip # password
 tar czf xxx.tar.gz dirx
+
+# tmux
+tmux new -s name
+tmux ls
+tmux a -t name # attach
+tmux kill-session -t name # delete
