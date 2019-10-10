@@ -84,6 +84,9 @@ xcrun simctl boot 3F611CF2-AB87-4A4E-98E7-8BA22948F2C3
 xcrun simctl install 3F611CF2-AB87-4A4E-98E7-8BA22948F2C3 ~/xxxx.app 
 xcrun simctl launch 3F611CF2-AB87-4A4E-98E7-8BA22948F2C3 jp.minipro.app.xxx
 
+open /Library/Developer/CoreSimulator/Profiles/Runtimes
+open ~/Library/Developer/CoreSimulator/Devices
+
 
 # web check
 watch -n 0.5 "wget -S --spider -nv --no-cache --no-cookies --no-dns-cache --user-agent='' https://.json -a ~/Desktop/xxx.log"
