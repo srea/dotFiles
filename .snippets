@@ -14,8 +14,7 @@ git pull-request -b v4/master -m "[WIP] "
 git rm --cached `git ls-files --full-name -i --exclude-from=.gitignore`
 git reset --hard ^HEAD
 git reset --soft HEAD^
-git reset --merge
-git remote set-branches origin '*' # unshallow後にremote branchを取得する
+git reset --merge git remote set-branches origin '*' # unshallow後にremote branchを取得する
 git log 3.14.2..rc-3.15.0 --merges --first-parent --reverse --pretty=format:"- %b(%s)" | sed -E 's/\(Merge pull request (#[0-9]+) from ..*$/ \1/'
 git clean -f -d
 git rev-list HEAD | wc -l | tr -d ' '
@@ -80,6 +79,18 @@ xcodebuild -arch x86_64 -sdk iphonessimulator12.2 -target xxx -configuration Rel
 
 xcodebuild -list # Show (Targets, Build Configuration, Schemes)
 xcodebuild -showsdks # showSDKs
+
+xcrun simctl list # devices & runtimes
+xcrun simctl list runtimes
+xcrun simctl list devicetypes
+xcrun simctl create "俺のiPhoneSE" com.apple.CoreSimulator.SimDeviceType.iPhone-SE com.apple.CoreSimulator.SimRuntime.iOS-11-4
+xcrun simctl boot 3F611CF2-AB87-4A4E-98E7-8BA22948F2C3
+xcrun simctl install 3F611CF2-AB87-4A4E-98E7-8BA22948F2C3 ~/xxxx.app 
+xcrun simctl launch 3F611CF2-AB87-4A4E-98E7-8BA22948F2C3 jp.minipro.app.xxx
+
+open /Library/Developer/CoreSimulator/Profiles/Runtimes
+open ~/Library/Developer/CoreSimulator/Devices
+
 
 # web check
 watch -n 0.5 "wget -S --spider -nv --no-cache --no-cookies --no-dns-cache --user-agent='' https://.json -a ~/Desktop/xxx.log"
