@@ -42,7 +42,7 @@ bindkey '^x^s' peco-select-snippet
 
 ## at once
 if [ $SHLVL = 1 ]; then
-  tmux
+  tmux a -t main || tmux new -s main
 fi
 
 # ruby
