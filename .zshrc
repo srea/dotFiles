@@ -36,7 +36,7 @@ function peco-select-snippet() {
   zle -R -c
 }
 zle -N peco-select-snippet
-bindkey '^x^s' peco-select-snippet
+bindkey '^f^e' peco-select-snippet
 
 # tmux
 
@@ -57,6 +57,9 @@ compinit
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
+setopt hist_expand
+setopt share_history
+
 
 # github
 
@@ -76,3 +79,20 @@ alias openx='`open $(find . -name "*.xcworkspace" -depth 1 -print -quit)`'
 function urlencode {
   echo "$1" | nkf -WwMQ | sed 's/=$//g' | tr = % | tr -d '\n'
 }
+export PATH="/usr/local/opt/opencv@3/bin:$PATH"
+
+# nodenv
+
+eval "$(nodenv init -)"
+
+# goenv
+
+export GOENV_ROOT=$HOME/.goenv
+export PATH=$GOENV_ROOT/bin:$PATH
+eval "$(goenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/yukitamazawa/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yukitamazawa/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/yukitamazawa/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yukitamazawa/google-cloud-sdk/completion.zsh.inc'; fi
