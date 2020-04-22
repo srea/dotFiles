@@ -1,6 +1,6 @@
 # dependency
 
-- `brew install zsh zsh-completions peco tmux hub wget nmap bat github/gh/gh`
+- `brew install zsh zsh-completions peco tmux hub wget nmap bat github/gh/gh reattach-to-user-namespace awscli`
 - https://github.com/sorin-ionescu/prezto (theme: steeef)
 
 # setup

@@ -45,10 +45,6 @@ if [ $SHLVL = 1 ]; then
   tmux a -t main || tmux new -s main
 fi
 
-# ruby
-
-eval "$(rbenv init -)"
-
 # zsh config
 
 autoload -U compinit
@@ -81,15 +77,9 @@ function urlencode {
 }
 export PATH="/usr/local/opt/opencv@3/bin:$PATH"
 
-# nodenv
-
-eval "$(nodenv init -)"
-
-# goenv
-
-export GOENV_ROOT=$HOME/.goenv
-export PATH=$GOENV_ROOT/bin:$PATH
-eval "$(goenv init -)"
+# anyenv
+# https://github.com/anyenv/anyenv
+eval "$(anyenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/yukitamazawa/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yukitamazawa/google-cloud-sdk/path.zsh.inc'; fi
