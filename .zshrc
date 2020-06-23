@@ -17,6 +17,12 @@ if [ -f ~/.zsh_local ]; then
   source ~/.zsh_local
 fi
 
+# prompt
+
+autoload -Uz promptinit
+promptinit
+prompt steeef
+
 # peco history
 
 function peco-history-selection() {

@@ -27,6 +27,7 @@ git remote set-url origin git@github.com:Owner/texas.git # https -> ssh git
 # for Pull Request (brew install ffmpeg)
 ffmpeg -i input.mov -vf scale=320:-1 -an -r 10 output.gif
 ffmpeg -i IMG_0077.MOV -vcodec copy -map 0:0 iOS_VoIP.mp4 # 音声を削除
+ffmpeg -i ./input.mov -pix_fmt yuv420p ./output.mp4
 
 # convert
 mogrify -format pdf xx.svg
@@ -57,6 +58,7 @@ xcrun instruments -w 'iPhone X'
 instruments -s devices # udid list
 xcrun simctl list | egrep '(Booted)'
 security cms -D -i ~/Library/MobileDevice/Provisioning\ Profiles/xxx.mobileprovision # プロビジョニング内を見る
+xcrun simctl io booted recordVideo record.mov
 
 ## https://developer.apple.com/library/archive/technotes/tn2151/_index.html
 export DEVELOPER_DIR=`xcode-select -p` && /Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash crashlog.crash xx.dSYM 

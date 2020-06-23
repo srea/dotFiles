@@ -6,7 +6,8 @@
 
 # setup
 
+    $ mkdir -p  ~/src/github.com/srea/
     $ git clone git://github.com/srea/dotFiles.git
     $ cd dotFiles
-    $ ./setup.sh
+    $ sh ./setup.sh
 
