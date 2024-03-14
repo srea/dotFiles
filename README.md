@@ -1,5 +1,8 @@
 # dependency
 
+- xcode command line tools
+- install brew https://brew.sh/ja/
+- github ssh
 - `brew install zsh zsh-completions peco anyenv tmux hub wget nmap bat github/gh/gh reattach-to-user-namespace awscli`
 - `anyenv init`
 - https://github.com/sorin-ionescu/prezto (theme: steeef)
