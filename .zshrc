@@ -1,3 +1,7 @@
+# asdf
+
+. "$HOME/.asdf/asdf.sh"
+
 # Android
 
 path=(
@@ -85,7 +89,7 @@ export PATH="/usr/local/opt/opencv@3/bin:$PATH"
 
 # anyenv
 # https://github.com/anyenv/anyenv
-eval "$(anyenv init -)"
+# eval "$(anyenv init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/yukitamazawa/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yukitamazawa/google-cloud-sdk/path.zsh.inc'; fi
