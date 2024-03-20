@@ -31,3 +31,6 @@
 	trustExitCode = true
 [commit]
 	template = ~/.gitcommit.txt
+[user]
+	name = srea
+	email = yuki.tamazawa@icloud.com
