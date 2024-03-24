@@ -2,12 +2,14 @@
 
 . "$HOME/.asdf/asdf.sh"
 
-# Android
+# Android & Android Java
 
-path=(
-    ~/Library/Android/sdk/platform-tools(N-/)
-    $path
-)
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+
+export PATH=$PATH:/Applications/Android\ Studio.app/Contents/jbr/Contents/Home/bin
+export JAVA_HOME=$PATH:/Applications/Android\ Studio.app/Contents/jbr/Contents/Home
 
 # Prezto
 
@@ -87,12 +89,7 @@ function urlencode {
 }
 export PATH="/usr/local/opt/opencv@3/bin:$PATH"
 
-# anyenv
-# https://github.com/anyenv/anyenv
-# eval "$(anyenv init -)"
+# flutter
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yukitamazawa/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/yukitamazawa/google-cloud-sdk/path.zsh.inc'; fi
+export PATH="$PATH:$HOME/src/dev/flutter/bin"
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/yukitamazawa/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/yukitamazawa/google-cloud-sdk/completion.zsh.inc'; fi
