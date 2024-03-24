@@ -19,8 +19,8 @@ fi
 
 # local
 
-if [ -f ~/.zsh_local ]; then
-  source ~/.zsh_local
+if [ -f $HOME/.zsh_local ]; then
+  source $HOME/.zsh_local
 fi
 
 # prompt
@@ -43,7 +43,7 @@ bindkey '^R' peco-history-selection
 # peco snippets
 
 function peco-select-snippet() {
-  BUFFER=$(cat ~/.snippets | peco)
+  BUFFER=$(cat $HOME/.snippets | peco)
   CURSOR=$#BUFFER
   zle -R -c
 }
@@ -62,7 +62,7 @@ fi
 autoload -U compinit
 compinit
 
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt hist_expand
